@@ -53,3 +53,7 @@ Please check existing issues and file any new issues, bugs, or feature requests 
 Contributing is not entirely in place yet. However, if you wish to contribute a change to any of the existing components in this repo,
 please review our [contribution guide](https://github.com/cph-cachet/carp.sensing/CONTRIBUTING.md),
 and send a [pull request](https://github.com/cph-cachet/carp.sensing-flutter/pulls).
+
+
+## todo dependencies that need fixing. 
+![Screenshot 2023-09-04 at 17.49.34.png](..%2F..%2FDesktop%2FScreenshot%202023-09-04%20at%2017.49.34.png)
