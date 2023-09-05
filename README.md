@@ -56,4 +56,5 @@ and send a [pull request](https://github.com/cph-cachet/carp.sensing-flutter/pul
 
 
 ## todo dependencies that need fixing. 
-![Screenshot 2023-09-04 at 17.49.34.png](..%2F..%2FDesktop%2FScreenshot%202023-09-04%20at%2017.49.34.png)
+<img width="1612" alt="Screenshot 2023-09-04 at 17 49 34" src="https://github.com/majornuts/carp.sensing-flutter/assets/5493338/83a74483-87d4-4c9f-97b5-1c37b773eb9b">
+
