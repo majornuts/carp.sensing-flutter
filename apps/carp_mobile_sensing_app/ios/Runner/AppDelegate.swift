@@ -9,7 +9,7 @@ import Flutter
   ) -> Bool {
     
     //  from flutter_local_notifications
-    if #available(iOS 10.0, *) {
+    if #available(iOS 15.0, *) {
       UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
     }
 
