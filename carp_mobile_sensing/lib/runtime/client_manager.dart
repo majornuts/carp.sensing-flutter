@@ -77,10 +77,10 @@ class SmartPhoneClientManager extends ClientManager
 
     // set default values, if not specified
     deviceId ??= DeviceInfo().deviceID;
-    // _notificationController =
-    //     notificationController ?? FlutterLocalNotificationController();
     _notificationController =
-        notificationController ?? AwesomeNotificationController();
+        notificationController ?? FlutterLocalNotificationController();
+    // _notificationController =
+    //     notificationController ?? AwesomeNotificationController();
     this.deploymentService = deploymentService ?? SmartphoneDeploymentService();
     this.deviceController = deviceController ?? DeviceController();
 

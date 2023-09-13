@@ -12,6 +12,7 @@ library runtime;
 
 import 'dart:async';
 import 'dart:convert';
+// import 'dart:js_interop_unsafe';
 import 'dart:math';
 import 'dart:io';
 
@@ -30,14 +31,14 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // as notifications;
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:uuid/uuid.dart';
 import 'package:cron/cron.dart' as cron;
 import 'package:battery_plus/battery_plus.dart';
 
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+// import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 
 part 'data_manager.dart';
 part 'device_manager.dart';
@@ -57,7 +58,7 @@ part 'deployment_service.dart';
 part 'client_manager.dart';
 part 'notification/notification_controller.dart';
 part 'notification/local_notification_controller.dart';
-part 'notification/awesome_notification_controller.dart';
+// part 'notification/awesome_notification_controller.dart';
 part 'util/cron_parser.dart';
 part 'runtime.g.dart';
 

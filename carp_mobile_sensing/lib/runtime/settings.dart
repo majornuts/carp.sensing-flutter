@@ -156,7 +156,7 @@ class Settings {
     // setting up time zone settings
     tz.initializeTimeZones();
     try {
-      _timezone = await FlutterNativeTimezone.getLocalTimezone();
+      _timezone = await tz.getLocation(_timezone) as String;
     } catch (_) {
       _timezone = tz.local.name;
       warning(
