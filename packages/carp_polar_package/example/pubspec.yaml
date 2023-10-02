@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.40.0
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=3.1.0'
   flutter: ">=3.0.0"
 
 dependencies:
@@ -16,10 +16,6 @@ dependencies:
   #   path: ../../../carp_mobile_sensing
   carp_polar_package:
     path: ../
-
-dev_dependencies:
-#  flutter_test:
-#    sdk: flutter
 
 flutter:
   uses-material-design: true
