@@ -28,7 +28,7 @@ class Sensing {
   StudyDeploymentStatus? get status => _status;
 
   /// The role name of this device in the deployed study
-  String? get deviceRolename => _status?.masterDeviceStatus?.device.roleName;
+  String? get deviceRolename => "pixel device 1";
 
   /// The study runtime controller for this deployment
   SmartphoneDeploymentController? get controller => _controller;
@@ -75,7 +75,7 @@ class Sensing {
         // reuse the study deployment id, if this is stored on the phone
         _status = await SmartphoneDeploymentService().createStudyDeployment(
           protocol,
-          bloc.studyDeploymentId,
+          bloc._studyDeploymentId as List<ParticipantInvitation>,
         );
 
         // save the correct deployment id on the phone for later use
@@ -87,13 +87,14 @@ class Sensing {
 
         // use the CARP deployment service that knows how to download a
         // custom protocol
-        deploymentService = CustomProtocolDeploymentService();
-
-        // get the study deployment status based on the studyDeploymentId
-        if (bloc.studyDeploymentId != null) {
-          _status = await CustomProtocolDeploymentService()
-              .getStudyDeploymentStatus(bloc.studyDeploymentId!);
-        } else {
+        // deploymentService = CustomProtocolDeploymentService();
+        //
+        // // get the study deployment status based on the studyDeploymentId
+        // if (bloc.studyDeploymentId != null) {
+        //   _status = await CustomProtocolDeploymentService()
+        //       .getStudyDeploymentStatus(bloc.studyDeploymentId!);
+        // } else
+        {
           warning(
               '$runtimeType - no study deployment ID has been specified....?');
         }
@@ -108,17 +109,14 @@ class Sensing {
 
     // Create and configure a client manager for this phone
     client = SmartPhoneClientManager();
+
     await client?.configure(
       deploymentService: deploymentService,
       deviceController: DeviceController(),
     );
 
     // Define the study and add it to the client.
-    study = Study(
-      bloc.studyDeploymentId!,
-      deviceRolename!,
-    );
-    await client?.addStudy(study!);
+    await client?.addStudy(bloc._studyDeploymentId!, deviceRolename!);
 
     // Get the study controller and try to deploy the study.
     //
@@ -127,6 +125,10 @@ class Sensing {
     // be used pr. default.
     // If not deployed before (i.e., cached) the study deployment will be
     // fetched from the deployment service.
+    study = Study(
+      bloc.studyDeploymentId!,
+      deviceRolename!,
+    );
     _controller = client?.getStudyRuntime(study!);
     await controller?.tryDeployment(useCached: bloc.useCachedStudyDeployment);
 
@@ -135,9 +137,8 @@ class Sensing {
 
     // Start samplling
     controller?.start(bloc.resumeSensingOnStartup);
-
     // Listening on the data stream and print them as json to the debug console
-    controller?.data.listen((data) => print(toJsonString(data)));
+    controller?.measurements.listen((event)  => print(toJsonString(event)));
 
     info('$runtimeType initialized');
   }

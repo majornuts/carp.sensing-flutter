@@ -7,38 +7,38 @@ class ProbeDescriptor {
 
 class ProbeDescription {
   static Map<String, ProbeDescriptor> get descriptors => {
-        DataType.UNKNOWN.toString(): ProbeDescriptor(
-          'Unknown',
-          'Unknown Probe',
-        ),
-        DeviceSamplingPackage.MEMORY: ProbeDescriptor(
-          'Memory',
-          'Collecting free physical and virtual memory.',
-        ),
-        DeviceSamplingPackage.DEVICE: ProbeDescriptor(
-          'Device',
-          'Basic Device (Phone) Information.',
-        ),
-        DeviceSamplingPackage.BATTERY: ProbeDescriptor(
-          'Battery',
-          'Collecting battery level and charging status.',
-        ),
-        SensorSamplingPackage.PEDOMETER: ProbeDescriptor(
-          'Pedometer',
-          'Collecting step counts on a regular basis.',
-        ),
-        SensorSamplingPackage.ACCELEROMETER: ProbeDescriptor(
-          'Accelerometer',
-          "Collecting sensor data from the phone's onboard accelerometer.",
-        ),
-        SensorSamplingPackage.GYROSCOPE: ProbeDescriptor(
-          'Gyroscope',
-          "Collecting sensor data from the phone's onboard gyroscope.",
-        ),
-        SensorSamplingPackage.LIGHT: ProbeDescriptor(
-          'Light',
-          'Measures ambient light in lux on a regular basis.',
-        ),
+        // DataType.UNKNOWN.toString(): ProbeDescriptor(
+        //   'Unknown',
+        //   'Unknown Probe',
+        // ),
+        // DeviceSamplingPackage.MEMORY: ProbeDescriptor(
+        //   'Memory',
+        //   'Collecting free physical and virtual memory.',
+        // ),
+        // DeviceSamplingPackage.DEVICE: ProbeDescriptor(
+        //   'Device',
+        //   'Basic Device (Phone) Information.',
+        // ),
+        // DeviceSamplingPackage.BATTERY: ProbeDescriptor(
+        //   'Battery',
+        //   'Collecting battery level and charging status.',
+        // ),
+        // SensorSamplingPackage.PEDOMETER: ProbeDescriptor(
+        //   'Pedometer',
+        //   'Collecting step counts on a regular basis.',
+        // ),
+        // SensorSamplingPackage.ACCELEROMETER: ProbeDescriptor(
+        //   'Accelerometer',
+        //   "Collecting sensor data from the phone's onboard accelerometer.",
+        // ),
+        // SensorSamplingPackage.GYROSCOPE: ProbeDescriptor(
+        //   'Gyroscope',
+        //   "Collecting sensor data from the phone's onboard gyroscope.",
+        // ),
+        // SensorSamplingPackage.LIGHT: ProbeDescriptor(
+        //   'Light',
+        //   'Measures ambient light in lux on a regular basis.',
+        // ),
         ConnectivitySamplingPackage.BLUETOOTH: ProbeDescriptor(
           'Bluetooth',
           'Collecting nearby bluetooth devices on a regular basis.',
@@ -83,18 +83,18 @@ class ProbeDescription {
         //   'Calendar',
         //   'Collects entries from phone calendars.',
         // ),
-        DeviceSamplingPackage.SCREEN: ProbeDescriptor(
-          'Screen',
-          'Collecting screen events (on/off/unlock).',
-        ),
+        // DeviceSamplingPackage.SCREEN: ProbeDescriptor(
+        //   'Screen',
+        //   'Collecting screen events (on/off/unlock).',
+        // ),
         ContextSamplingPackage.LOCATION: ProbeDescriptor(
           'Location',
           'Collecting location information.',
         ),
-        ContextSamplingPackage.GEOLOCATION: ProbeDescriptor(
-          'Geolocation',
-          "Listening to changes in the phone's geo-location.",
-        ),
+        // ContextSamplingPackage.GEOLOCATION: ProbeDescriptor(
+        //   'Geolocation',
+        //   "Listening to changes in the phone's geo-location.",
+        // ),
         ContextSamplingPackage.ACTIVITY: ProbeDescriptor(
           'Activity',
           'Recognize physical activity, e.g. sitting, walking, biking.',
@@ -123,53 +123,53 @@ class ProbeDescription {
           'eSense Movement',
           'eSense IMU sensor events.',
         ),
-        PolarSamplingPackage.POLAR_ACCELEROMETER: ProbeDescriptor(
-          'Polar Accelerometer',
-          'Polar IMU sensor events.',
-        ),
-        PolarSamplingPackage.POLAR_GYROSCOPE: ProbeDescriptor(
-          'Polar Gyroscope',
-          'Polar IMU sensor events.',
-        ),
-        PolarSamplingPackage.POLAR_MAGNETOMETER: ProbeDescriptor(
-          'Polar Magnetometer',
-          'Polar IMU sensor events.',
-        ),
-        PolarSamplingPackage.POLAR_ECG: ProbeDescriptor(
-          'Polar ECG',
-          'Polar Electrocardiogram.',
-        ),
-        PolarSamplingPackage.POLAR_HR: ProbeDescriptor(
-          'Polar HR',
-          'Polar Heart Rate.',
-        ),
-        PolarSamplingPackage.POLAR_PPG: ProbeDescriptor(
-          'Polar PPG',
-          'Polar Photoplethysmograpy.',
-        ),
-        PolarSamplingPackage.POLAR_PPI: ProbeDescriptor(
-          'Polar PPI',
-          'Polar Pulse-to-Pulse Interval.',
-        ),
+        // PolarSamplingPackage.POLAR_ACCELEROMETER: ProbeDescriptor(
+        //   'Polar Accelerometer',
+        //   'Polar IMU sensor events.',
+        // ),
+        // PolarSamplingPackage.POLAR_GYROSCOPE: ProbeDescriptor(
+        //   'Polar Gyroscope',
+        //   'Polar IMU sensor events.',
+        // ),
+        // PolarSamplingPackage.POLAR_MAGNETOMETER: ProbeDescriptor(
+        //   'Polar Magnetometer',
+        //   'Polar IMU sensor events.',
+        // ),
+        // PolarSamplingPackage.POLAR_ECG: ProbeDescriptor(
+        //   'Polar ECG',
+        //   'Polar Electrocardiogram.',
+        // ),
+        // PolarSamplingPackage.POLAR_HR: ProbeDescriptor(
+        //   'Polar HR',
+        //   'Polar Heart Rate.',
+        // ),
+        // PolarSamplingPackage.POLAR_PPG: ProbeDescriptor(
+        //   'Polar PPG',
+        //   'Polar Photoplethysmograpy.',
+        // ),
+        // PolarSamplingPackage.POLAR_PPI: ProbeDescriptor(
+        //   'Polar PPI',
+        //   'Polar Pulse-to-Pulse Interval.',
+        // ),
       };
 
   static Map<String, Icon> get probeTypeIcon => {
-        DataType.UNKNOWN.toString():
-            Icon(Icons.error, size: 50, color: CACHET.GREY_4),
-        DeviceSamplingPackage.MEMORY:
-            Icon(Icons.memory, size: 50, color: CACHET.GREY_4),
-        DeviceSamplingPackage.DEVICE:
-            Icon(Icons.phone_android, size: 50, color: CACHET.GREY_4),
-        DeviceSamplingPackage.BATTERY:
-            Icon(Icons.battery_charging_full, size: 50, color: CACHET.GREEN),
-        SensorSamplingPackage.PEDOMETER:
-            Icon(Icons.directions_walk, size: 50, color: CACHET.LIGHT_PURPLE),
-        SensorSamplingPackage.ACCELEROMETER:
-            Icon(Icons.adb, size: 50, color: CACHET.GREY_4),
-        SensorSamplingPackage.GYROSCOPE:
-            Icon(Icons.adb, size: 50, color: CACHET.GREY_4),
-        SensorSamplingPackage.LIGHT:
-            Icon(Icons.highlight, size: 50, color: CACHET.YELLOW),
+        // DataType.UNKNOWN.toString():
+        //     Icon(Icons.error, size: 50, color: CACHET.GREY_4),
+        // DeviceSamplingPackage.MEMORY:
+        //     Icon(Icons.memory, size: 50, color: CACHET.GREY_4),
+        // DeviceSamplingPackage.DEVICE:
+        //     Icon(Icons.phone_android, size: 50, color: CACHET.GREY_4),
+        // DeviceSamplingPackage.BATTERY:
+        //     Icon(Icons.battery_charging_full, size: 50, color: CACHET.GREEN),
+        // SensorSamplingPackage.PEDOMETER:
+        //     Icon(Icons.directions_walk, size: 50, color: CACHET.LIGHT_PURPLE),
+        // SensorSamplingPackage.ACCELEROMETER:
+        //     Icon(Icons.adb, size: 50, color: CACHET.GREY_4),
+        // SensorSamplingPackage.GYROSCOPE:
+        //     Icon(Icons.adb, size: 50, color: CACHET.GREY_4),
+        // SensorSamplingPackage.LIGHT:
+        //     Icon(Icons.highlight, size: 50, color: CACHET.YELLOW),
         ConnectivitySamplingPackage.BLUETOOTH:
             Icon(Icons.bluetooth_searching, size: 50, color: CACHET.DARK_BLUE),
         ConnectivitySamplingPackage.WIFI:
@@ -192,11 +192,11 @@ class ProbeDescription {
         //     Icon(Icons.phone_in_talk, size: 50, color: CACHET.ORANGE),
         // CommunicationSamplingPackage.CALENDAR:
         //     Icon(Icons.event, size: 50, color: CACHET.CYAN),
-        DeviceSamplingPackage.SCREEN: Icon(Icons.screen_lock_portrait,
-            size: 50, color: CACHET.LIGHT_PURPLE),
+        // DeviceSamplingPackage.SCREEN: Icon(Icons.screen_lock_portrait,
+        //     size: 50, color: CACHET.LIGHT_PURPLE),
         ContextSamplingPackage.LOCATION:
-            Icon(Icons.location_searching, size: 50, color: CACHET.CYAN),
-        ContextSamplingPackage.GEOLOCATION:
+            // Icon(Icons.location_searching, size: 50, color: CACHET.CYAN),
+        // ContextSamplingPackage.GEOLOCATION:
             Icon(Icons.my_location, size: 50, color: CACHET.YELLOW),
         ContextSamplingPackage.ACTIVITY:
             Icon(Icons.directions_bike, size: 50, color: CACHET.ORANGE),
@@ -212,27 +212,27 @@ class ProbeDescription {
             size: 50, color: CACHET.LIGHT_PURPLE),
         ESenseSamplingPackage.ESENSE_SENSOR:
             Icon(Icons.headset, size: 50, color: CACHET.LIGHT_PURPLE),
-        PolarSamplingPackage.POLAR_ACCELEROMETER:
-            Icon(Icons.moving, size: 50, color: CACHET.LIGHT_PURPLE),
-        PolarSamplingPackage.POLAR_GYROSCOPE:
-            Icon(Icons.moving, size: 50, color: CACHET.LIGHT_PURPLE),
-        PolarSamplingPackage.POLAR_MAGNETOMETER:
-            Icon(Icons.iron, size: 50, color: CACHET.LIGHT_PURPLE),
-        PolarSamplingPackage.POLAR_ECG:
-            Icon(Icons.monitor_heart_rounded, size: 50, color: CACHET.GREEN),
-        PolarSamplingPackage.POLAR_HR:
-            Icon(Icons.heart_broken, size: 50, color: CACHET.RED),
-        PolarSamplingPackage.POLAR_PPG:
-            Icon(Icons.add_link, size: 50, color: CACHET.GREY_2),
-        PolarSamplingPackage.POLAR_PPI:
-            Icon(Icons.link, size: 50, color: CACHET.GREY_3),
+        // PolarSamplingPackage.POLAR_ACCELEROMETER:
+        //     Icon(Icons.moving, size: 50, color: CACHET.LIGHT_PURPLE),
+        // PolarSamplingPackage.POLAR_GYROSCOPE:
+        //     Icon(Icons.moving, size: 50, color: CACHET.LIGHT_PURPLE),
+        // PolarSamplingPackage.POLAR_MAGNETOMETER:
+        //     Icon(Icons.iron, size: 50, color: CACHET.LIGHT_PURPLE),
+        // PolarSamplingPackage.POLAR_ECG:
+        //     Icon(Icons.monitor_heart_rounded, size: 50, color: CACHET.GREEN),
+        // PolarSamplingPackage.POLAR_HR:
+        //     Icon(Icons.heart_broken, size: 50, color: CACHET.RED),
+        // PolarSamplingPackage.POLAR_PPG:
+        //     Icon(Icons.add_link, size: 50, color: CACHET.GREY_2),
+        // PolarSamplingPackage.POLAR_PPI:
+        //     Icon(Icons.link, size: 50, color: CACHET.GREY_3),
       };
 
   static Map<ExecutorState, String> get probeStateLabel => {
         ExecutorState.created: "Created",
         ExecutorState.initialized: "Initialized",
-        ExecutorState.resumed: "Resumed",
-        ExecutorState.paused: "Paused",
+        // ExecutorState.resumed: "Resumed",
+        // ExecutorState.paused: "Paused",
         ExecutorState.stopped: "Stopped",
         ExecutorState.undefined: "Undefined",
       };
@@ -240,10 +240,10 @@ class ProbeDescription {
   static Map<ExecutorState, Icon> get probeStateIcon => {
         ExecutorState.created: Icon(Icons.child_care, color: CACHET.GREY_4),
         ExecutorState.initialized:
-            Icon(Icons.check, color: CACHET.LIGHT_PURPLE),
-        ExecutorState.resumed:
-            Icon(Icons.radio_button_checked, color: CACHET.GREEN),
-        ExecutorState.paused:
+            // Icon(Icons.check, color: CACHET.LIGHT_PURPLE),
+        // ExecutorState.resumed:
+        //     Icon(Icons.radio_button_checked, color: CACHET.GREEN),
+        // ExecutorState.paused:
             Icon(Icons.radio_button_unchecked, color: CACHET.GREEN),
         ExecutorState.stopped: Icon(Icons.close, color: CACHET.GREY_2),
         ExecutorState.undefined: Icon(Icons.error_outline, color: CACHET.RED),

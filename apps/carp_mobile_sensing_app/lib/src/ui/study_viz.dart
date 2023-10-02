@@ -2,6 +2,7 @@ part of mobile_sensing_app;
 
 class StudyDeploymentPage extends StatefulWidget {
   const StudyDeploymentPage({super.key});
+
   static const String routeName = '/study';
 
   @override
@@ -185,14 +186,16 @@ class _StudyControllerLine extends StatelessWidget {
 class _TaskPanel extends StatelessWidget {
   _TaskPanel({Key? key, this.task}) : super(key: key);
 
-  final TaskDescriptor? task;
+  final TaskConfiguration? task;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final List<Widget> children = task!.measures
-        .map((measure) => _MeasureLine(measure: measure))
+
+    final List<Widget>? children = task!.measures
+        ?.map((measure) => _MeasureLine(key: key, measure:  measure)).cast<Widget>()
         .toList();
+
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -208,7 +211,7 @@ class _TaskPanel extends StatelessWidget {
                   Icon(Icons.description, size: 40, color: CACHET.ORANGE),
                   Text('  ${task!.name}', style: themeData.textTheme.headline6),
                 ]),
-                Column(children: children)
+                Column(children: children??[])
                 //Expanded(child: Column(children: children))
               ]))),
     );
@@ -225,7 +228,7 @@ class _MeasureLine extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     final Icon icon = (ProbeDescription.probeTypeIcon[measure!.type] != null)
         ? Icon(ProbeDescription.probeTypeIcon[measure!.type]!.icon, size: 25)
-        : Icon(ProbeDescription.probeTypeIcon[DataType.UNKNOWN as String]!.icon,
+        : Icon(ProbeDescription.probeTypeIcon[DataType as String]!.icon,
             size: 25);
 
     final String name = ProbeDescription.descriptors[measure?.type]?.name ??

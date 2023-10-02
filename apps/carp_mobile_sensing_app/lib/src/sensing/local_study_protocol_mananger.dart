@@ -20,6 +20,7 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
     SmartphoneStudyProtocol protocol = SmartphoneStudyProtocol(
       ownerId: 'abc@dtu.dk',
       name: protocolId,
+      // masterDeviceRoleName: 'phone',
     );
 
     protocol.studyDescription = StudyDescription(
@@ -39,7 +40,7 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
     protocol.dataEndPoint = (bloc.deploymentMode == DeploymentMode.LOCAL)
         ? SQLiteDataEndPoint()
         : CarpDataEndPoint(
-            uploadMethod: CarpUploadMethod.DATA_POINT,
+            uploadMethod: CarpUploadMethod.datapoint,
             name: 'CARP Server',
           );
 
@@ -48,7 +49,7 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
 
     // define the master device
     Smartphone phone = Smartphone();
-    protocol.addMasterDevice(phone);
+    protocol.addPrimaryDevice(phone);
 
     Measure bluetoothMeasure =
         Measure(type: ConnectivitySamplingPackage.BLUETOOTH);
@@ -58,14 +59,14 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
       duration: const Duration(seconds: 5),
     );
 
-    protocol.addTriggeredTask(ImmediateTrigger(),
+    protocol.addTaskControl(ImmediateTrigger(),
         BackgroundTask()..addMeasure(bluetoothMeasure), phone);
 
     Measure wifiMeasure = Measure(type: ConnectivitySamplingPackage.WIFI);
     wifiMeasure.overrideSamplingConfiguration =
         IntervalSamplingConfiguration(interval: Duration(seconds: 10));
 
-    protocol.addTriggeredTask(
+    protocol.addTaskControl(
         ImmediateTrigger(), BackgroundTask()..addMeasure(wifiMeasure), phone);
 
     // // build-in measure from sensor and device sampling packages
@@ -120,28 +121,28 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
     //     locationService);
 
     // Define the online weather service and add it as a 'device'
-    WeatherService weatherService =
-        WeatherService(apiKey: '12b6e28582eb9298577c734a31ba9f4f');
-    protocol.addConnectedDevice(weatherService);
+    // WeatherService weatherService =
+    //     WeatherService(apiKey: '12b6e28582eb9298577c734a31ba9f4f');
+    // protocol.addConnectedDevice(weatherService);
 
     // Add a background task that collects weather every 30 minutes.
-    protocol.addTriggeredTask(
-        IntervalTrigger(period: Duration(seconds: 20)),
-        BackgroundTask()
-          ..addMeasure(Measure(type: ContextSamplingPackage.WEATHER)),
-        weatherService);
+    // protocol.addTriggeredTask(
+    //     IntervalTrigger(period: Duration(seconds: 20)),
+    //     BackgroundTask()
+    //       ..addMeasure(Measure(type: ContextSamplingPackage.WEATHER)),
+    //     weatherService);
 
     // Define the online air quality service and add it as a 'device'
-    AirQualityService airQualityService =
-        AirQualityService(apiKey: '9e538456b2b85c92647d8b65090e29f957638c77');
-    protocol.addConnectedDevice(airQualityService);
+    // AirQualityService airQualityService =
+    //     AirQualityService(apiKey: '9e538456b2b85c92647d8b65090e29f957638c77');
+    // protocol.addConnectedDevice(airQualityService);
 
     // Add a background task that air quality every 30 minutes.
-    protocol.addTriggeredTask(
-        IntervalTrigger(period: Duration(seconds: 30)),
-        BackgroundTask()
-          ..addMeasure(Measure(type: ContextSamplingPackage.AIR_QUALITY)),
-        airQualityService);
+    // protocol.addTriggeredTask(
+    //     IntervalTrigger(period: Duration(seconds: 30)),
+    //     BackgroundTask()
+    //       ..addMeasure(Measure(type: ContextSamplingPackage.AIR_QUALITY)),
+    //     airQualityService);
 
     // protocol.addTriggeredTask(
     //     ImmediateTrigger(),
@@ -229,16 +230,16 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
     //   roleName: 'polar-pvs-device',
     // );
 
-    protocol.addConnectedDevice(polar);
+    // protocol.addConnectedDevice(polar);
 
-    protocol.addTriggeredTask(
-        ImmediateTrigger(),
-        BackgroundTask()
-          ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_HR))
-          ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_ECG))
-          ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_PPG))
-          ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_PPI)),
-        polar);
+    // protocol.addTriggeredTask(
+    //     ImmediateTrigger(),
+    //     BackgroundTask()
+    //       ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_HR))
+    //       ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_ECG))
+    //       ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_PPG))
+    //       ..addMeasure(Measure(type: PolarSamplingPackage.POLAR_PPI)),
+    //     polar);
 
     // // add a measure for ECG monitoring using the Movisens device
     // protocol.addTriggeredTask(
@@ -285,7 +286,7 @@ class LocalStudyProtocolManager implements StudyProtocolManager {
       case DeploymentMode.CARP_PRODUCTION:
       case DeploymentMode.CARP_STAGING:
         return CarpDataEndPoint(
-          uploadMethod: CarpUploadMethod.DATA_POINT,
+          uploadMethod: CarpUploadMethod.datapoint,
           name: 'CARP Server',
         );
     }

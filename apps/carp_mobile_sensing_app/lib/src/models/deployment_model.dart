@@ -19,7 +19,7 @@ class StudyDeploymentModel {
   ExecutorState get studyState => Sensing().controller!.executor!.state;
 
   /// Get all sensing events (i.e. all [Datum] objects being collected).
-  Stream<DataPoint> get data => Sensing().controller!.data;
+  Stream<DataPoint> get data => Sensing()._controller!.measurements.asyncExpand((event) => data);
 
   /// The total sampling size so far since this study was started.
   int get samplingSize => Sensing().controller!.samplingSize;

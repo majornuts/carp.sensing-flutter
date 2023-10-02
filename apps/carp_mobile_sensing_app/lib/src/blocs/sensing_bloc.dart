@@ -80,14 +80,14 @@ class SensingBLoC {
   void connectToDevice(DeviceModel device) =>
       Sensing().client?.deviceController.devices[device.type!]!.connect();
 
-  void resume() async => Sensing().controller?.executor?.resume();
-  void pause() => Sensing().controller?.executor?.pause();
+  void resume() async => Sensing().controller?.executor.onStart();
+  void pause() => Sensing().controller?.executor.stop();
   void stop() async => Sensing().controller?.stop();
 
   /// Is sensing running, i.e. has the study executor been resumed?
   bool get isRunning =>
       (Sensing().controller != null) &&
-      Sensing().controller!.executor!.state == ExecutorState.resumed;
+      Sensing().controller!.executor!.state == ExecutorState.started;
 }
 
 final bloc = SensingBLoC();
